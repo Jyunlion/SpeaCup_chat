@@ -69,4 +69,19 @@ if ($_REQUEST['action'] === 'sendReq') {
             echo  mysqli_error($conn);
         }
     }
+} else if ($_REQUEST['action'] === 'cancelReq') {
+    $cancelSendingTo  = $_REQUEST['user_id'];
+    $cancelSendingFrom = $_SESSION['unique_id'];
+
+    $sql_cancelFriend = "DELETE FROM friends WHERE (user1 = '$cancelSendingTo' AND user2 = '$cancelSendingFrom') OR (user2 = '$cancelSendingTo' AND user1 = '$cancelSendingFrom')";
+    $sql_deleteReq = "DELETE FROM requests WHERE (sendingfrom = '$cancelSendingTo' AND sendingto = '$cancelSendingFrom') OR (sendingfrom = '$cancelSendingTo' AND sendingto = '$cancelSendingFrom')";
+    $sql_deleteNoti = "DELETE FROM notifications WHERE (noti_From = '$cancelSendingTo' AND noti_To = '$cancelSendingFrom') OR (noti_From = '$cancelSendingTo' AND noti_To = '$cancelSendingFrom')";
+
+    if (
+        mysqli_query($conn, $sql_cancelFriend) &&   mysqli_query($conn, $sql_deleteReq) && mysqli_query($conn, $sql_deleteNoti)
+    ) {
+        echo "Request send, delete from DB";
+    } else {
+        echo  mysqli_error($conn);
+    }
 }
