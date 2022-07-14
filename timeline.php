@@ -81,9 +81,6 @@ $birth = $row_user['birth'];
                                     }
                               }
                               ?>
-
-
-
                         </div>
                   </div>
 
@@ -96,18 +93,7 @@ $birth = $row_user['birth'];
             </div>
       </div>
 
-      <script>
-      function sendAction(constant, user_id) {
-            // alert(unique_id);
-            $.post(`./php/action.php?action=sendReq&user_id=${user_id}`, function(res) {
-                  // alert(res);
-                  if (res == 'Request send, saved into DB') {
-                        $('#sendReq').hide()
-                        $('#sendReq').parent().html('邀請成功，等待對方確認!')
-                  }
-            })
-      }
-      </script>
+      <script src="./Js/add_cancel_friend.js"></script>
 
 </body>
 

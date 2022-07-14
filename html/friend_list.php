@@ -36,10 +36,8 @@
                         <div class="col-4">
                               <h6 class='text-uppercase'><?php echo $row_getName['nickname']; ?></h6>
                         </div>
-                        <!-- <button class='btn btn-primary' id='sendReq'
-                              onclick='cancelAction(1,"<?php echo $user_id ?>")'>解除好友</button> -->
 
-                        <button class='btn btn-primary' id='cancelReq'
+                        <button class='btn btn-danger' id='cancelReq'
                               onclick='cancelAction(1,"<?php echo $row_ProfilePic['unique_id']; ?>")'>解除好友</button>
 
                   </div>
@@ -51,31 +49,5 @@
 
 
                   ?>
-
-
             </div>
-
-
-            <script>
-// function cancelAction(constant, user_id) {
-//       // alert(unique_id);
-//       $.post(`./php/action.php?action=sendReq&user_id=${user_id}`, function(res) {
-//             // alert(res);
-//             if (res == 'Request send, saved into DB') {
-//                   $('#sendReq').hide()
-//                   $('#sendReq').parent().html('邀請成功，等待對方確認!')
-//             }
-//       })
-// }
-
-function cancelAction(constant, user_id) {
-      // alert(unique_id);
-      $.post(`./php/action.php?action=cancelReq&user_id=${user_id}`, function(res) {
-            // alert(res);
-            if (res == 'Request send, delete from DB') {
-                  $('#cancelReq').hide()
-                  $('#cancelReq').parent().html('已取消好友!')
-            }
-      })
-}
-            </script>
+            <script src="./Js/add_cancel_friend.js"></script>
