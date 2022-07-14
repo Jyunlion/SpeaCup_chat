@@ -1,17 +1,5 @@
-<?php
-session_start();
-include_once "php/config.php";
-if (!isset($_SESSION['unique_id'])) {
-      header("location: login.php");
-}
-?>
-<?php include_once "header.php"; ?>
-
-<body>
+      <!-- 聊天對象選擇介面 -->
       <div class="wrapper">
-            <div>
-                  <a class="nav-link" href="timeline.php">資訊欄</a>
-            </div>
             <section class="users">
                   <header>
                         <div class="content">
@@ -40,6 +28,3 @@ if (!isset($_SESSION['unique_id'])) {
       </div>
 
       <script src="./Js/users_friend.js"></script>
-</body>
-
-</html>

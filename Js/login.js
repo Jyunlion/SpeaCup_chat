@@ -25,7 +25,7 @@ continueBtn.onclick = () =>
                         let data = xhr.response;
                         if ( data == "OK" )
                         {
-                              location.href = "users.php"
+                              location.href = "users_friend.php"
                         } else
                         {
                               // @ts-ignore
